@@ -22,7 +22,7 @@ export default async function ProductPage({ params }: { params: { slug: string }
       <div className="space-y-4">
         <h2 className="text-xl font-semibold">Real Products</h2>
         <AddRealProductForm testingProductId={product.id} />
-        <RealProductsTable products={realProducts} testingProductId={product.id} />
+        <RealProductsTable products={realProducts} />
       </div>
     </div>
   );
