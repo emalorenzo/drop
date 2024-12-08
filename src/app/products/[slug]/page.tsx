@@ -3,8 +3,9 @@ import { notFound } from "next/navigation";
 import { RealProductsTable } from "~/components/RealProductsTable";
 import { AddRealProductForm } from "~/components/AddRealProductForm";
 
-export default async function ProductPage({ params }: { params: { slug: string } }) {
-  const product = await getTestingProductBySlug(params.slug);
+export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const product = await getTestingProductBySlug(slug);
 
   if (!product) {
     notFound();
